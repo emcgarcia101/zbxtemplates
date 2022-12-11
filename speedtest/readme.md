@@ -11,3 +11,5 @@ Just download the .conf file in the UserParameters Folder, in this case is the d
 sudo wget https://raw.githubusercontent.com/emcgarcia101/zbxtemplates/main/speedtest/speedtest.data.conf -P /etc/zabbix/zabbix_agent2.d/
 
 Import the template on Zabbix Server and assing to a host and have fun :)
+
+Create on Zabbix Server 6 LTS.
