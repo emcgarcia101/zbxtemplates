@@ -1,0 +1,243 @@
+zabbix_export:
+  version: '6.0'
+  date: '2022-12-11T19:07:01Z'
+  groups:
+    -
+      uuid: 48a0d350439547f2830ca84f71fcee8c
+      name: 'Custom Templates'
+  templates:
+    -
+      uuid: f65f38d6274b42cb9fcbed489c965bd0
+      template: 'Speedtest Monitoring'
+      name: 'Speedtest Monitoring'
+      groups:
+        -
+          name: 'Custom Templates'
+      items:
+        -
+          uuid: d82403db23f4427ab9bcdb0654c3fb2c
+          name: 'Speedtest: Client IP'
+          type: DEPENDENT
+          key: speedtest.client.ip
+          delay: '0'
+          trends: '0'
+          value_type: TEXT
+          preprocessing:
+            -
+              type: JSONPATH
+              parameters:
+                - $.client.ip
+          master_item:
+            key: speedtest.get
+          tags:
+            -
+              tag: component
+              value: bandwidth
+        -
+          uuid: 20533c2359fc45e89b3cc6f68bbba5d7
+          name: 'Speedtest: Client ISP'
+          type: DEPENDENT
+          key: speedtest.client.isp
+          delay: '0'
+          trends: '0'
+          value_type: TEXT
+          preprocessing:
+            -
+              type: JSONPATH
+              parameters:
+                - $.client.isp
+          master_item:
+            key: speedtest.get
+          tags:
+            -
+              tag: component
+              value: bandwidth
+        -
+          uuid: d221dae469984b8ea0618dd78d7c6bcb
+          name: 'Speedtest: Client Latitude'
+          type: DEPENDENT
+          key: speedtest.client.lat
+          delay: '0'
+          trends: '0'
+          value_type: TEXT
+          preprocessing:
+            -
+              type: JSONPATH
+              parameters:
+                - $.client.lat
+          master_item:
+            key: speedtest.get
+          tags:
+            -
+              tag: component
+              value: bandwidth
+        -
+          uuid: 62eff2a9afc94d019dfcbfe0ce94afff
+          name: 'Speedtest: Client Longitude'
+          type: DEPENDENT
+          key: speedtest.client.lon
+          delay: '0'
+          trends: '0'
+          value_type: TEXT
+          preprocessing:
+            -
+              type: JSONPATH
+              parameters:
+                - $.client.lon
+          master_item:
+            key: speedtest.get
+          tags:
+            -
+              tag: component
+              value: bandwidth
+        -
+          uuid: 691dc455514a4969808fecdd03db9ce4
+          name: 'Speedtest: Download'
+          type: DEPENDENT
+          key: speedtest.download
+          delay: '0'
+          value_type: FLOAT
+          units: B
+          preprocessing:
+            -
+              type: JSONPATH
+              parameters:
+                - $.download
+          master_item:
+            key: speedtest.get
+          tags:
+            -
+              tag: component
+              value: bandwidth
+        -
+          uuid: 4dcc266fd01c4f7296af0c7145cd61f8
+          name: 'Speedtest: Get Data'
+          key: speedtest.get
+          delay: 1h
+          trends: '0'
+          value_type: TEXT
+          tags:
+            -
+              tag: component
+              value: raw
+        -
+          uuid: 3bfd706fdb1749ff8d777ebfe159bb35
+          name: 'Speedtest: Ping'
+          type: DEPENDENT
+          key: speedtest.ping
+          delay: '0'
+          value_type: FLOAT
+          units: ms
+          preprocessing:
+            -
+              type: JSONPATH
+              parameters:
+                - $.ping
+          master_item:
+            key: speedtest.get
+          tags:
+            -
+              tag: component
+              value: bandwidth
+        -
+          uuid: a3305ad5504947ca95049b4437bf1e39
+          name: 'Speedtest: Server Latitude'
+          type: DEPENDENT
+          key: speedtest.server.lat
+          delay: '0'
+          trends: '0'
+          value_type: TEXT
+          preprocessing:
+            -
+              type: JSONPATH
+              parameters:
+                - $.server.lat
+          master_item:
+            key: speedtest.get
+          tags:
+            -
+              tag: component
+              value: bandwidth
+        -
+          uuid: 827aa425928b4cc5af2762640765d406
+          name: 'Speedtest: Server Latency'
+          type: DEPENDENT
+          key: speedtest.server.latency
+          delay: '0'
+          value_type: FLOAT
+          units: ms
+          preprocessing:
+            -
+              type: JSONPATH
+              parameters:
+                - $.server.latency
+          master_item:
+            key: speedtest.get
+          tags:
+            -
+              tag: component
+              value: bandwidth
+        -
+          uuid: 2124a6936910477389ef9ca1a8b17a07
+          name: 'Speedtest: Server Longitude'
+          type: DEPENDENT
+          key: speedtest.server.lon
+          delay: '0'
+          trends: '0'
+          value_type: TEXT
+          preprocessing:
+            -
+              type: JSONPATH
+              parameters:
+                - $.server.lon
+          master_item:
+            key: speedtest.get
+          tags:
+            -
+              tag: component
+              value: bandwidth
+        -
+          uuid: 7119a1125743400d8083b1dc34b84a5a
+          name: 'Speedtest: Server Sponsor'
+          type: DEPENDENT
+          key: speedtest.server.sponsor
+          delay: '0'
+          trends: '0'
+          value_type: TEXT
+          preprocessing:
+            -
+              type: JSONPATH
+              parameters:
+                - $.server.sponsor
+          master_item:
+            key: speedtest.get
+          tags:
+            -
+              tag: component
+              value: bandwidth
+        -
+          uuid: 47b348382d7547089f4e705c11edb948
+          name: 'Speedtest: Upload'
+          type: DEPENDENT
+          key: speedtest.upload
+          delay: '0'
+          value_type: FLOAT
+          units: B
+          preprocessing:
+            -
+              type: JSONPATH
+              parameters:
+                - $.upload
+          master_item:
+            key: speedtest.get
+          tags:
+            -
+              tag: component
+              value: bandwidth
+      tags:
+        -
+          tag: class
+          value: network
+        -
+          tag: component
+          value: bandwidth
